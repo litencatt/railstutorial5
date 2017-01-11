@@ -12,6 +12,8 @@ gem 'jbuilder',     '2.4.1'
 group :development, :test do
   gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
 end
 
 group :development do
@@ -22,10 +24,11 @@ group :development do
 end
 
 group :test do
-  gem 'rails-controller-testing', '0.1.1'
-  gem 'minitest-reporters',       '1.1.9'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
+  gem 'faker', '~> 1.1.2'
+  gem 'capybara', '~> 2.1.0'
+  gem 'database_cleaner', '~> 1.0.1'
+  gem 'launchy', '~> 2.3.0'
+  gem 'selenium-webdriver', '~>2.45.0'
 end
 
 group :production do
