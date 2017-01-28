@@ -24,9 +24,5 @@ describe StaticPagesController do
       get :contact
       expect(response.status).to eq 200
     end
-    it 'page title is right' do
-      visit contact_path
-      expect(page).to have_title 'Contact | Ruby on Rails Tutorial Sample App'
-    end
   end
 end
