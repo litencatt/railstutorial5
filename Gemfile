@@ -16,6 +16,7 @@ gem 'pry-rails'
 group :development, :test do
   gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rspec-core'
   gem 'factory_girl_rails', '~> 4.2.1'
@@ -35,6 +36,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'rails-controller-testing', require: false
 end
 
 group :production do
