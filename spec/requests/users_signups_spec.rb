@@ -26,6 +26,7 @@ RSpec.describe "UsersSignups" do
         expect(page).to have_content("Name can't be blank")
       end
     end
+
     describe "with valid information" do
       before do
         fill_in "user[name]", with: "Example User"
@@ -35,6 +36,7 @@ RSpec.describe "UsersSignups" do
       end
       it "should create a user" do
         expect{click_button submit}.to change(User, :count).by(1)
+        expect(page).to render_template 'users/show'
       end
     end
   end
