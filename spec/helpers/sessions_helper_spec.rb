@@ -10,6 +10,15 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe SessionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe SessionsHelper do
+  before do
+    @user = create(:user)
+    remember(@user)
+  end
+
+  describe 'current_user returns right user when session is nil' do
+  end
+
+  describe 'current_user returns nil when remember digest is wrong' do
+  end
 end

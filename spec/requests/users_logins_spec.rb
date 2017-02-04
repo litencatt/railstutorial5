@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Login", type: :request do
   describe "login with invalid information" do
-    it "works! (now write some real specs)" do
+    it "failed" do
       get login_path
       expect(response).to render_template :new
       post login_path, params: {session: { email: "", password: ""}}
@@ -13,22 +13,21 @@ RSpec.describe "Login", type: :request do
     end
   end
 
-  describe "Login" do
-    describe "login with valid information" do
-      it "success" do
-        user = create(:user, password: 'password')
-        visit login_path
-        fill_in "session[email]", with: user.email
-        fill_in "session[password]", with: "password"
-        click_button "Log in"
-        expect(page).not_to have_link 'Log in', href: login_path
-        expect(page).to have_link 'Log out', href: logout_path
-        expect(page).to have_link 'Profile', href: user_path(user)
-        click_on "Log out"
-        expect(page).to have_link 'Log in', href: login_path
-        expect(page).not_to have_link 'Log out', href: logout_path
-        expect(page).not_to have_link 'Profile', href: user_path(user)
-      end
+  describe "login with valid information" do
+    it "success" do
+      user = create(:user, password: 'password')
+      visit login_path
+      fill_in "session[email]", with: user.email
+      fill_in "session[password]", with: "password"
+      click_button "Log in"
+      expect(page).not_to have_link 'Log in', href: login_path
+      expect(page).to have_link 'Log out', href: logout_path
+      expect(page).to have_link 'Profile', href: user_path(user)
+      click_on "Log out"
+      delete logout_path
+      expect(page).to have_link 'Log in', href: login_path
+      expect(page).not_to have_link 'Log out', href: logout_path
+      expect(page).not_to have_link 'Profile', href: user_path(user)
     end
   end
 end

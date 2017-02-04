@@ -63,4 +63,9 @@ describe User do
     user.password = user.password_confirmation = "a" * 5
     expect(user).to be_invalid
   end
+
+  it 'returns false when authenticated? for a user with nil digest' do
+    user = create(:user, remember_digest: nil)
+    expect(user.authenticated?('')).to eq false
+  end
 end
