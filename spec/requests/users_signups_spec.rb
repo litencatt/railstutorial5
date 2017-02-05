@@ -18,7 +18,7 @@ RSpec.describe "UsersSignups" do
       end
       it "render sign up page" do
         click_button submit
-        expect(response).to render_template :new
+        expect(current_path).to eq signup_path
       end
       it "render error notify" do
         click_button submit
@@ -36,7 +36,7 @@ RSpec.describe "UsersSignups" do
       end
       it "should create a user" do
         expect{click_button submit}.to change(User, :count).by(1)
-        expect(page).to render_template 'users/show'
+        expect(current_path).to eq user_path(User.first)
       end
     end
   end

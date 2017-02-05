@@ -6,7 +6,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-include Capybara::DSL
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -18,6 +17,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryGirl::Syntax::Methods
   config.include LoginMacros
+  config.include Capybara::DSL
   require 'rails-controller-testing'
   [:controller, :view, :request].each do |type|
     config.include ::Rails::Controller::Testing::TestProcess, :type => type
