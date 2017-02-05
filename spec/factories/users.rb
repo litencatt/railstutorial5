@@ -5,6 +5,11 @@ FactoryGirl.define do
     name "Michael Example"
     email "michael@example.com"
     password "password"
+
+    factory :other do
+      name "Sterling Archer"
+      email "duchess@example.gov"
+    end
   end
 
 end
