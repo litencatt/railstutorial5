@@ -6,6 +6,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'email_spec'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -24,4 +25,6 @@ RSpec.configure do |config|
     config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
     config.include ::Rails::Controller::Testing::Integration, :type => type
   end
+  config.include EmailSpec::Helpers
+  config.include EmailSpec::Matchers
 end

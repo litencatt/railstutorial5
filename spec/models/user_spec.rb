@@ -66,6 +66,6 @@ describe User do
 
   it 'returns false when authenticated? for a user with nil digest' do
     user = create(:user, remember_digest: nil)
-    expect(user.authenticated?('')).to eq false
+    expect(user.authenticated?(:remember, '')).to be_falsey
   end
 end

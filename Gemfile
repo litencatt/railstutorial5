@@ -14,6 +14,7 @@ gem 'jbuilder',     '2.4.1'
 gem 'pry-rails'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
@@ -39,6 +40,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'rails-controller-testing', require: false
+  gem 'email_spec'
 end
 
 group :production do
