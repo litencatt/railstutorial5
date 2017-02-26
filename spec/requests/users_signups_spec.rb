@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "UsersSignups" do
   describe "signup" do
-    before { visit signup_path }
+    before do
+      ActionMailer::Base.deliveries.clear
+      visit signup_path
+    end
 
     let(:submit) { "Create my account" }
 
@@ -33,11 +36,22 @@ RSpec.describe "UsersSignups" do
         fill_in "user[email]", with: "user@example.com"
         fill_in "user[password]", with: "password"
         fill_in "user[password_confirmation]", with: "password"
+        click_button submit
       end
-      xit "should create a user" do
-        expect{click_button submit}.to change(User, :count).by(1)
-        expect(current_path).to eq user_path(User.first)
+
+      it "sends activation mail" do
+        expect(ActionMailer::Base.deliveries.size).to eq 1
       end
+
+      it "should create a user" do
+        user = User.first
+        expect(user.activated?).to eq false
+        # TODO: user.activation_tokenが取得できない
+        visit edit_account_activation_path(user.activation_token, email: user.email)
+        expect(user.reload.activated?).to eq true
+        expect(current_path).to eq user_path(user)
+      end
+
     end
   end
 end
