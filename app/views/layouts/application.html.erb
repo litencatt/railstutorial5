@@ -5,8 +5,8 @@
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
     <% if Rails.env.production? %>
-      <%= render 'shared/google'%>
       <%= render 'shared/_page_hiding'%>
+      <%= render 'shared/google'%>
     <% end %>
   </head>
   <body>
