@@ -6,6 +6,7 @@
     <%= render 'layouts/shim' %>
     <% if Rails.env.production? %>
       <%= render 'shared/google'%>
+      <%= render 'shared/_page_hiding'%>
     <% end %>
   </head>
   <body>
