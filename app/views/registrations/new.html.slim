@@ -1,0 +1,13 @@
+.form
+
+  = form_tag :registrations, id: 'form1' do
+    - @domains.each do |domain|
+      - tld = domain.split('.', 2).last
+      - if tld == 'jp'
+        = render 'a', domain: domain
+      - if tld == 'co.jp'
+        = render 'b', domain: domain
+      - if tld == 'asia'
+        = render 'c', domain: domain
+    = button_tag '前へ', type: 'button', class: 'btn btn-primary', id: 'form-button-prev'
+    = button_tag '次へ', type: 'button', class: 'btn btn-primary', id: 'form-button-next'
