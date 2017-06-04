@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   def new
-    @domains = %w(a.jp)
+    @domains = %w(a.jp b.co.jp c.or.jp d.asia)
   end
 
   def create

@@ -1,0 +1,6 @@
+.sub-form id="form-#{domain}"
+  h2 = domain
+
+  = button_tag 'クリア', id: "#{domain}", class: 'btn btn-warning form-clear-btn'
+  = text_field_tag "#{domain}[last_name]"
+  = text_field_tag "#{domain}[first_name]"

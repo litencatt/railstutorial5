@@ -1,0 +1,11 @@
+.sub-form id="form-#{domain}"
+  h2 = domain
+
+  = select_tag "#{domain}[registrant_number]", options_for_select(['1', '2'])
+  dl#registrant_detail
+    dt
+      | show detail
+      dd
+        = render 'registrant_detail'
+
+  = select_tag "#{domain}[contact_number]", options_for_select(['1', '2'])

@@ -6,12 +6,14 @@
     - @domains.each do |domain|
       - tld = domain.split('.', 2).last
       - if tld == 'jp'
-        = render 'a', domain: domain.gsub(/\./, '_')
+        = render 'jp', domain: domain.gsub(/\./, '_')
       - if tld == 'co.jp'
-        = render 'b', domain: domain
+        = render 'cojp', domain: domain.gsub(/\./, '_')
+      - if tld == 'or.jp'
+        = render 'orjp', domain: domain.gsub(/\./, '_')
       - if tld == 'asia'
-        = render 'c', domain: domain
-    = button_tag 'クリア', type: 'button', class: 'btn btn-warning', id: 'button-clear'
+        = render 'asia', domain: domain.gsub(/\./, '_')
+
     = button_tag '前へ', type: 'button', class: 'btn btn-primary', id: 'form-button-prev'
     = button_tag '次へ', type: 'button', class: 'btn btn-primary', id: 'form-button-next'
 

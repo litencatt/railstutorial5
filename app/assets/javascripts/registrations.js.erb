@@ -5,6 +5,7 @@ $(document).ready(function(){
   var count = 0
   var current = 0
   $('.sub-form').each(function(i){
+    console.log($(this).attr("id"))
     count++
     if(i == 0) {
       $(this).show()
@@ -50,9 +51,14 @@ $(document).ready(function(){
     console.log(count)
   })
 
-  $('#button-clear').click(function() {
-    $('.sub-form').each(function(){
-      $('input[id^=a_jp]').val("")
-    })
+  $('.form-clear-btn').click(function() {
+    var id = $(this).attr('id')
+    var str = 'input[id^=%id]'.replace('%id', id)
+    $(str).val("")
+  })
+
+  $('#registrant_detail dd').hide()
+  $('#registrant_detail dt').on('click', function(){
+    $(this).next().slideToggle()
   })
 })
