@@ -1,11 +1,12 @@
-.sub-form id="form-#{domain}"
+.gjp_form id="#{domain}_form"
   h2 = domain
 
-  = select_tag "#{domain}[registrant_number]", options_for_select(['1', '2'])
+  = hidden_tag "gjp[domain_name]", value="#{domain_name}"
+  = select_tag "gjp[#{domain}][registrant_number]", options_for_select(['1', '2'])
   dl#registrant_detail
     dt
       | show detail
       dd
         = render 'registrant_detail'
 
-  = select_tag "#{domain}[contact_number]", options_for_select(['1', '2'])
+  = select_tag "gjp[#{domain}][contact_number]", options_for_select(['1', '2'])

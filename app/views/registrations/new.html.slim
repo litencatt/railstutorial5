@@ -1,7 +1,4 @@
-= javascript_include_tag "https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"
-
-.form
-
+.registrations_form
   = form_tag :registrations, id: 'form1' do
     - @domains.each do |domain|
       - tld = domain.split('.', 2).last

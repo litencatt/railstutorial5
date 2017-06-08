@@ -2,63 +2,67 @@
 //= require jquery_ujs
 
 $(document).ready(function(){
+
+  $('#form-button-next').click(function(){
+    $('#form1').submit()
+  })
   var count = 0
   var current = 0
-  $('.sub-form').each(function(i){
-    console.log($(this).attr("id"))
-    count++
-    if(i == 0) {
-      $(this).show()
-    } else {
-      $(this).hide()
-    }
-  })
-
-  console.log(current)
-  console.log(count)
-  $('#form-button-next').click(function(){
-    if(current == count - 1) {
-      $('#form1').submit()
-    }
-    $('.sub-form').each(function(i){
-      if(i == current + 1 && $(this).css('display') != 'block') {
-        $(this).show()
-        current++
-        return false
-      } else {
-        $(this).hide()
-        $('#form-button-prev').show()
-      }
-    })
-    console.log(current)
-    console.log(count)
-  })
-
-  $('#form-button-prev').hide()
-  $('#form-button-prev').click(function(){
-    $('.sub-form').each(function(i){
-      if(i == current - 1 && $(this).css('display') != 'block') {
-        $(this).show()
-        current--
-        if(current == 0) {
-          $('#form-button-prev').hide()
-        }
-      } else {
-        $(this).hide()
-      }
-    })
-    console.log(current)
-    console.log(count)
-  })
-
-  $('.form-clear-btn').click(function() {
-    var id = $(this).attr('id')
-    var str = 'input[id^=%id]'.replace('%id', id)
-    $(str).val("")
-  })
-
-  $('#registrant_detail dd').hide()
-  $('#registrant_detail dt').on('click', function(){
-    $(this).next().slideToggle()
-  })
+//  $('.sub-form').each(function(i){
+//    console.log($(this).attr("id"))
+//    count++
+//    if(i == 0) {
+//      $(this).show()
+//    } else {
+//      $(this).hide()
+//    }
+//  })
+//
+//  console.log(current)
+//  console.log(count)
+//  $('#form-button-next').click(function(){
+//    if(current == count - 1) {
+//      $('#form1').submit()
+//    }
+//    $('.sub-form').each(function(i){
+//      if(i == current + 1 && $(this).css('display') != 'block') {
+//        $(this).show()
+//        current++
+//        return false
+//      } else {
+//        $(this).hide()
+//        $('#form-button-prev').show()
+//      }
+//    })
+//    console.log(current)
+//    console.log(count)
+//  })
+//
+//  $('#form-button-prev').hide()
+//  $('#form-button-prev').click(function(){
+//    $('.sub-form').each(function(i){
+//      if(i == current - 1 && $(this).css('display') != 'block') {
+//        $(this).show()
+//        current--
+//        if(current == 0) {
+//          $('#form-button-prev').hide()
+//        }
+//      } else {
+//        $(this).hide()
+//      }
+//    })
+//    console.log(current)
+//    console.log(count)
+//  })
+//
+//  $('.form-clear-btn').click(function() {
+//    var id = $(this).attr('id')
+//    var str = 'input[id^=%id]'.replace('%id', id)
+//    $(str).val("")
+//  })
+//
+//  $('#registrant_detail dd').hide()
+//  $('#registrant_detail dt').on('click', function(){
+//    $(this).next().slideToggle()
+//  })
 })
