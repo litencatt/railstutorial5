@@ -254,10 +254,10 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    mysql2 (0.4.9)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    pg (0.18.4)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -406,7 +406,7 @@ DEPENDENCIES
   launchy
   listen (= 3.0.8)
   mini_magick (= 4.5.1)
-  pg (= 0.18.4)
+  mysql2
   pry-byebug
   pry-rails
   puma (= 3.4.0)
@@ -429,4 +429,4 @@ DEPENDENCIES
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
-   1.14.5
+   1.14.6

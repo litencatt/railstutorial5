@@ -5,6 +5,7 @@ gem 'bcrypt',       '3.1.11'
 gem 'bootstrap-sass', '3.3.6'
 gem 'rake'
 gem 'puma',         '3.4.0'
+gem 'mysql2'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.0.0'
 gem 'coffee-rails', '4.2.1'
@@ -46,8 +47,4 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rails-controller-testing', require: false
   gem 'email_spec'
-end
-
-group :production do
-  gem 'pg', '0.18.4'
 end
