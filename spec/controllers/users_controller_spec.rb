@@ -56,7 +56,6 @@ RSpec.describe UsersController, type: :controller do
       }.to change(User, :count).by(1)
     end
     it 'redirect to user page and shows success message' do
-      binding.pry
       post :create, user: attributes_for(:user)
       expect(flash[:success]).to eq "Welcome to the Sample App!"
       expect(response).to redirect_to user_path(assigns(:user))
