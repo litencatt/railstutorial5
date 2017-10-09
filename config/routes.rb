@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   post    '/login',   to: 'sessions#create'
   delete  '/logout',  to: 'sessions#destroy'
 
+  scope 'api/v1' do
+    get '/', to: 'api#index'
+  end
+
   resources :users
   resources :account_activations, only: %i(edit)
   resources :password_resets,     only: %i(new create edit update)
