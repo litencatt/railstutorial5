@@ -47,4 +47,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rails-controller-testing', require: false
   gem 'email_spec'
+  gem 'webmock'
 end
