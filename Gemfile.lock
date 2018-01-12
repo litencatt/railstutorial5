@@ -258,6 +258,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     mysql2 (0.4.9)
+    newrelic_rpm (4.7.1.340)
     nio4r (1.2.1)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -415,6 +416,7 @@ DEPENDENCIES
   listen (= 3.0.8)
   mini_magick (= 4.5.1)
   mysql2
+  newrelic_rpm
   pry-byebug
   pry-rails
   puma (= 3.4.0)
