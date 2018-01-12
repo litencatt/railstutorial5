@@ -19,7 +19,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['PRODUCTION_MYSQL_DB']>
+  database: <%= ENV['PRODUCTION_MYSQL_DB'] %>
   host: <%= ENV['PRODUCTION_MYSQL_HOST'] %>
   username: <%= ENV['PRODUCTION_MYSQL_USER'] %>
   password: <%= ENV['PRODUCTION_MYSQL_PASSWORD'] %>
