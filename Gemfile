@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-core'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
