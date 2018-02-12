@@ -77,7 +77,11 @@ class User < ApplicationRecord
     end
 
     def create_activation_digest
-      self.activation_token = User.new_token
+      if Rails.env == 'test'
+        self.activation_token = "user_activation_token"
+      else
+        self.activation_token = User.new_token
+      end
       self.activation_digest = User.digest(activation_token)
     end
 end

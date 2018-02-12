@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.describe "Login", type: :request do
+describe "Login", type: :request do
   describe "login with invalid information" do
     it "failed" do
       get login_path
@@ -15,7 +13,7 @@ RSpec.describe "Login", type: :request do
 
   describe "login with valid information" do
     it "success" do
-      user = create(:user, password: 'password')
+      user = create(:user, password: 'password', activated: true)
       visit login_path
       fill_in "session[email]", with: user.email
       fill_in "session[password]", with: "password"

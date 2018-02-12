@@ -1,14 +1,12 @@
 describe Micropost, type: :model do
-  before do
-    user = create(:user)
-    @micropost = user.microposts.new(content: "Lorem ipsum")
-  end
+  let(:user) { create(:user) }
+  let(:micropost) { user.microposts.create(content: "Lorem ipsum") }
 
   it 'is invalid without user_id' do
-    expect(@micropost).to be_valid
+    expect(micropost).to be_valid
   end
 
   it 'order most recent first' do
-    expect(microposts).to eq Micropost.first
+    expect(micropost).to eq Micropost.first
   end
 end

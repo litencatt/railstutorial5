@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.describe "UsersSignups" do
+describe "UsersSignups" do
   describe "signup" do
     before do
       ActionMailer::Base.deliveries.clear
@@ -46,8 +44,7 @@ RSpec.describe "UsersSignups" do
       it "should create a user" do
         user = User.first
         expect(user.activated?).to eq false
-        # TODO: user.activation_tokenが取得できない
-        visit edit_account_activation_path(user.activation_token, email: user.email)
+        visit edit_account_activation_url('user_activation_token', email: user.email)
         expect(user.reload.activated?).to eq true
         expect(current_path).to eq user_path(user)
       end
