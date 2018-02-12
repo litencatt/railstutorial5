@@ -17,10 +17,12 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'slim-rails'
 gem 'newrelic_rpm'
-
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug',  platform: :mri
