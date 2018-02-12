@@ -28,4 +28,32 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_path
   end
+
+  def oauth_redirect
+    omniauth = request.env['omniauth.auth']
+
+    user = transaction do
+      oauth = UserOauth.find_by(
+        provider: omniauth['provider'],
+        uid: omniauth['uid'],
+        token: omniauth['credentials']['token']
+      )
+
+      user = User.create!(
+        name: omniauth['info']['name'],
+        email: omniauth['info']['email'],
+        password: BCrypt::Password.create(SecureRandom.hex),
+        activated: true
+      )
+
+      oauth.update_attributes!(user_id: user.id)
+      user
+    end
+
+    log_in user
+    redirect_back_or user
+  rescue
+    redirect_to root_path
+  end
+
 end
