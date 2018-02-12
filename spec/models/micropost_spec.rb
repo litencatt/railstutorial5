@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Micropost, type: :model do
   before do
     user = create(:user)
