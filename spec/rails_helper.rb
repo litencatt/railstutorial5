@@ -16,6 +16,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+
   config.include FactoryGirl::Syntax::Methods
   config.include LoginMacros
   config.include Capybara::DSL
@@ -25,6 +26,20 @@ RSpec.configure do |config|
     config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
     config.include ::Rails::Controller::Testing::Integration, :type => type
   end
+
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
+
+  DatabaseCleaner.strategy = :truncation
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:deletion)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
