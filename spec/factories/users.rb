@@ -1,5 +1,3 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :user do
     name "Michael Example"
@@ -16,5 +14,4 @@ FactoryGirl.define do
       email "duchess@example.gov"
     end
   end
-
 end

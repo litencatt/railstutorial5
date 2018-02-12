@@ -1,19 +1,16 @@
-require 'rails_helper'
-
 RSpec.describe UsersController, type: :controller do
-  before do
-    @user = create(:user)
-    @other = create(:other)
-  end
+  let(:user) { create(:user) }
+  let(:other) { create(:other) }
 
   describe "GET #show" do
     it "returns http success" do
-      get :show, id: @user
+      get :show, params: { id: user }
       expect(response).to have_http_status(:success)
       expect(response).to render_template :show
-      expect(assigns(:user)). to eq @user
+      expect(assigns(:user)). to eq user
     end
   end
+
   describe "GET #index" do
     it 'redirect to login page when not logged in' do
       get :index
@@ -21,7 +18,7 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to login_url
     end
     it 'shows index page when logged in' do
-      log_in_as(@user)
+      log_in_as(user)
       get :index
       expect(response).to render_template :index
     end
@@ -35,50 +32,41 @@ RSpec.describe UsersController, type: :controller do
   end
   describe "GET #edit" do
     it "success when logged in" do
-      log_in_as(@user)
-      get :edit, id: @user
+      log_in_as(user)
+      get :edit, params: { id: user }
       expect(flash).to be_empty
     end
     it "redirect to login when not logged in" do
-      log_in_as(@other)
-      get :edit, id: @user
+      log_in_as(other)
+      get :edit, params: { id: user }
       expect(flash).to be_empty
       expect(response).to redirect_to root_path
     end
   end
-end
 
-RSpec.describe UsersController, type: :controller do
   describe "POST #create" do
     it 'saves the new user in the database' do
       expect{
-        post :create, user: attributes_for(:user)
+        post :create, params: { user: attributes_for(:user) }
       }.to change(User, :count).by(1)
     end
     it 'redirect to user page and shows success message' do
-      post :create, user: attributes_for(:user)
-      expect(flash[:success]).to eq "Welcome to the Sample App!"
-      expect(response).to redirect_to user_path(assigns(:user))
+      post :create, params: { user: attributes_for(:user) }
+      expect(flash[:info]).to eq "Please check your email to activate your account."
+      expect(response).to redirect_to root_path
     end
-  end
-end
-
-RSpec.describe UsersController, type: :controller do
-  before do
-    @user = create(:user)
-    @other = create(:other)
   end
 
   describe "PATCH #update" do
     it 'success when logged in' do
-      log_in_as(@user)
-      patch :update, id: @user, user: {name: @user.name, email: @user.email }
+      log_in_as(user)
+      patch :update, params: { id: user, user: {name: user.name, email: user.email } }
       expect(flash[:success]).not_to be_empty
-      expect(response).to redirect_to @user
+      expect(response).to redirect_to user
     end
     it 'redirect to root path when update other user' do
-      log_in_as(@other)
-      patch :update, id: @user, user: {name: @user.name, email: @user.email }
+      log_in_as(other)
+      patch :update, params: { id: user, user: {name: user.name, email: user.email } }
       expect(flash).to be_empty
       expect(response).to redirect_to root_url
     end

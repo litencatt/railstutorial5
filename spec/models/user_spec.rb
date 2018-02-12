@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe User do
   it 'is valid with a name and email' do
     user = create(:user)
