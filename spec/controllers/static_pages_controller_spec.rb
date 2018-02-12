@@ -4,10 +4,6 @@ describe StaticPagesController do
       get :home
       expect(response.status).to eq 200
     end
-    it 'should have title' do
-      visit root_path
-      expect(page).to have_content 'Ruby on Rails Tutorial Sample App'
-    end
   end
   describe 'GET help' do
     it 'responce is 200 OK' do
