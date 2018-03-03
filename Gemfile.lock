@@ -41,6 +41,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrake (7.2.1)
+      airbrake-ruby (~> 2.5)
+    airbrake-ruby (2.8.1)
     arel (8.0.0)
     autoprefixer-rails (7.2.5)
       execjs
@@ -443,6 +446,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   bcrypt
   bootstrap-sass
   bootstrap-will_paginate

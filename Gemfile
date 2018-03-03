@@ -22,6 +22,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
+gem 'airbrake'
+
 group :development, :test do
   gem 'byebug',  platform: :mri
   gem 'pry-byebug'
