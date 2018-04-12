@@ -17,7 +17,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include LoginMacros
   config.include Capybara::DSL
   require 'rails-controller-testing'
