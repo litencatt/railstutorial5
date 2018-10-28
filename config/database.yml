@@ -16,7 +16,6 @@ test:
   host:     <%= ENV['TEST_MYSQL_HOST'] || 'localhost' %>
   username: <%= ENV['TEST_MYSQL_USER'] || 'root' %>
   password: <%= ENV['TEST_MYSQL_PASSWORD'] || '' %>
-  socket: /tmp/mysql.sock
 
 production:
   <<: *default
@@ -24,4 +23,3 @@ production:
   host:     <%= ENV['PRODUCTION_MYSQL_HOST'] %>
   username: <%= ENV['PRODUCTION_MYSQL_USER'] %>
   password: <%= ENV['PRODUCTION_MYSQL_PASSWORD'] %>
-
