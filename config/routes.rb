@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   delete  '/logout',  to: 'sessions#destroy'
 
   scope 'api/v1' do
-    get '/', to: 'api#index'
+    get  '/', to: 'api#index'
+    post '/', to: 'authenticate#create'
   end
 
   resources :users
