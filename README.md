@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/litencatt/railstutorial5.svg?style=svg)](https://circleci.com/gh/litencatt/railstutorial5)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
