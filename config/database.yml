@@ -1,9 +1,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
   pool: 5
-  timeout: 5000
   port: 3306
 
 development:
@@ -17,7 +15,8 @@ test:
   database: rails5_test
   host:     <%= ENV['TEST_MYSQL_HOST'] || 'localhost' %>
   username: <%= ENV['TEST_MYSQL_USER'] || 'root' %>
-  password: <%= ENV['TEST_MYSQL_PASSWORD'] %>
+  password: <%= ENV['TEST_MYSQL_PASSWORD'] || '' %>
+  socket: /tmp/mysql.sock
 
 production:
   <<: *default
