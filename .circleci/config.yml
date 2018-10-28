@@ -1,17 +1,18 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/repo
     docker:
       - image: circleci/ruby:2.4.3-node-browsers
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
+          DB_USERNAME: root
       - image: circleci/mysql:5.7
-
-    working_directory: ~/repo
-
+        environment:
+          MYSQL_USER: root
+          MYSQL_DATABASE: rails5_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     steps:
       - checkout
 
