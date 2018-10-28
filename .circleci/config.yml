@@ -3,6 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.4.3-node-browsers
+          environment:
+            RAILS_ENV: test
+            DB_HOST: 127.0.0.1
+            DB_USERNAME: 'root'
+            DB_PASSWORD: ''
       - image: circleci/mysql:5.7
 
     working_directory: ~/repo
