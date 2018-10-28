@@ -1,6 +1,6 @@
-class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :api_authenticate
+class ApiController < ActionController::API
 
   def index
     render json: { message: 'ok' }, status: :ok
