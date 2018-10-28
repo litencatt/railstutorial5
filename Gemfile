@@ -20,6 +20,7 @@ gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'knock'
 
 gem "rubyzip", ">= 1.2.2"
 gem "ffi", ">= 1.9.24"
